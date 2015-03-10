@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList include="libelle-base.xml">
+
+ <sim>
+
+  <description>Messerschmitt Libelle (YASim)</description>
+  <flight-model>yasim</flight-model>
+  <aero>libelle-yasim</aero>
+
+ </sim>
+
+ <yasim>
+   <me262>
+     <pilot-lb>180</pilot-lb>
+   </me262>
+ </yasim>
+
+</PropertyList>
+

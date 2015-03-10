@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Messerschmitt Me P 1101 : 2010 BARANGER Emmanuel
+
+     source          : http://www.luft46.com/mess/melibel.html
+                       http://aviation-militaire.kazeo.com/Avions-allemands/Messerschmitt-P-1101,a1746670.html
+                       http://www.luft46.com/mess/melibelle.html
+
+     Wingspan        :   8.2 m   (      27 ft 1   in)
+     Lenght          :   9.1 m   (      29 ft 0   in)
+     Height          :   2.8 m   (       9 ft 2.5 in)
+     Empty mass      :  2594 kg  ( 5718.78 lb)
+     Engines         : HeS 011A 1300 kg (2,866 lb)
+     Maximum speed   : 985 km/h ( 532 kt ) at 7000 m ( 22965 ft )
+-->
+
+<airplane mass="5718.78">
+
+  <approach speed="110" aoa="6" fuel="1.0">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+    <control-setting axis="/controls/flight/flaps" value="1"/>
+    <control-setting axis="/controls/gear/gear-down" value="1"/>
+    <solve-weight idx="0" weight="170"/>
+  </approach>
+
+  <cruise speed="530" alt="28000" fuel="1">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1"/>
+    <control-setting axis="/controls/flight/flaps" value="0"/>
+    <control-setting axis="/controls/gear/gear-down" value="0"/>
+    <solve-weight idx="0" weight="170"/>
+  </cruise>
+
+  <cockpit x="2.620" y="0" z="0.431"/>
+
+  <!-- Fuselage with engine on top -->
+  <fuselage ax="2.554" ay="0" az="0.292" bx="-3.240" by="0" bz="0.508" width="0.587" taper="0.3" midpoint="0.20"/>
+  <fuselage ax="3.620" ay="0" az="0.000" bx=" 0.431" by="0" bz="0.000" width="1.209" taper="0.5" midpoint="0.30"/>
+
+  <mstab x="1.996" y="0.265" z="-0.048"
+        chord="3.071" 
+        length="1.58"
+        taper="0.4"
+        sweep="37"
+        camber="0.01">
+        <stall aoa="16" width="1" peak="1.2"/>
+        <flap0 start="0.05" end="1" lift="1.1" drag="5.6"/>
+
+        <control-input axis="/controls/flight/flaps" control="FLAP0"/> 
+
+        <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+
+        <control-speed control="EXTEND" transition-time="11"/>
+
+   </mstab>
+
+  <wing x="0.986" y="1.528" z="-0.048"
+        chord="1.123" 
+        length="1.992"
+        taper="0.6"
+        sweep="12"
+        camber="0.01">
+        <stall aoa="16" width="1" peak="1.2"/>
+        <flap1 start="0" end="1" lift="1.18" drag="1.0"/>
+
+        <control-input axis="/controls/flight/aileron" control="FLAP1" square="true" split="true"/> 
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+   </wing>
+
+   <hstab x="-2.623" y="0" z="0.480"
+          chord="1.210"
+          length="2.2"
+          taper="0.35"
+          dihedral="26"
+          sweep="38">
+          <stall aoa="20" width="2.7" peak="1.3"/>
+          <flap0 start="0" end="1" lift="2.4" drag="1.5"/>
+
+          <control-input axis="/controls/flight/elevator" square="false" control="FLAP0" />
+          <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+
+          <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <vstab x="-2.623" y="0" z="0.480"
+         chord="1.210"
+         length="1.4"
+         taper="0.35"
+         dihedral="26"
+         sweep="38">
+         <stall aoa="20" width="1" peak="1.2"/>
+         <flap0 start="0" end="1" lift="1.4" drag="1.1"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+  </vstab>
+
+  <vstab x="-2.623" y="0" z="0.480"
+         chord="1.210"
+         length="1.4"
+         taper="0.35"
+         dihedral="154"
+         sweep="38">
+         <stall aoa="20" width="1" peak="1.2"/>
+         <flap0 start="0" end="1" lift="1.4" drag="1.1"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+  </vstab>
+
+  <!-- Engines   source            : http://en.wikipedia.org/wiki/Heinkel_HeS_011
+
+                 name              : Heinkel HeS 011
+                 type              : Turbojet
+                 power cruise      : 2700 lb at 10000 rpm
+                 weight            :  950 kg  ( 2094 lb )
+  -->
+  <jet x="1.938" y="0" z="0"
+       n1-idle="30" 
+       n1-max="90" 
+       n2-idle="35" 
+       n2-max="95"
+       egt="850" 
+       tsfc=".78"
+       mass="2094" 
+       thrust="2700">
+       <actionpt x="0.498" y="0" z="0"/>
+       <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+  </jet>
+  
+  <!-- Undercarriage -->
+  <!-- nose -->
+  <gear x="3.972" y="0" z="-0.956"
+        retract-time="8"
+        compression="0.30"
+        sfric="1.5"
+        dfric="0.6"
+        spring="1"
+        upx="0" 
+        upy="0" 
+        upz=".3"
+        damp="2" >
+        <control-input axis="/controls/flight/rudder" control="STEER" src0="-3.0" src1="3.0" dst0="-0.3" dst1="0.3"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+
+        <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+
+  <!-- left main -->
+  <gear x="1.749" y="0.672" z="-0.971"
+        retract-time="8"
+        compression="0.30"
+        sfric="1.5"
+        dfric="0.6"
+        spring="1"
+        damp="2" >
+        <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+
+        <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+
+  <!-- right main -->
+  <gear x="1.749" y="-0.672" z="-0.971"
+        retract-time="8"
+        compression="0.30"
+        sfric="1.5"
+        dfric="0.6"
+        spring="1"
+        damp="2" >
+        <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+
+        <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+
+  <!-- Internal tanks 370 liter -->
+  <tank x="2.400" y="0" z="0.200" jet="true" capacity="1000"/>
+
+  <weight x="2.834" y="0" z="0.093" mass-prop="/yasim/Messerschmitt-Libelle/pilot-lb"/>
+
+  <!-- Mass distribution -->
+  <ballast x="3" y="0" z="-2" mass="650"/>
+  <ballast x="-2.6" y="0" z="1" mass="-900"/>
+  <ballast x="3.95" y="0" z="0" mass="900"/>
+  
+</airplane>
+

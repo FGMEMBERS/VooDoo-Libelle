@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <PropertyList include="libelle-jsbsim-cnf.xml"> -->
+<PropertyList include="libelle-yasim-cnf.xml">
+
+  <sim>
+    <description>VooDoo-Libelle</description>
+    <author>Emmanuel BARANGER (3D/FDM)</author>
+<systems>
+      <autopilot>
+        <path>Aircraft/VooDoo-Libelle/autopilot.xml</path>
+  </autopilot>
+
+  </systems> 
+<hud>
+   <path n="1">Aircraft/VooDoo-Libelle/Hud/NTPS.xml</path>
+   <visibility n="1">true</visibility>
+   <palette>
+    <color n="0">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">0.38</red>
+     <green type="float">1.0</green>
+     <blue type="float">0.22</blue>
+    </color>
+    <color n="1">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">1.0</red>
+     <green type="float">0.2</green>
+     <blue type="float">0.0</blue>
+    </color>
+   </palette>
+   
+  </hud>
+  </sim>
+
+</PropertyList>
+
